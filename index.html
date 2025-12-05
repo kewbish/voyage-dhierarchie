@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Le voyage d'hiérarchie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap" rel="stylesheet">
+    <style>
+      .mermaid .edgePaths path {
+        pointer-events: stroke;
+      }
+      .mermaid .edgePaths path:hover {
+        stroke-width: 5px !important;
+      }
+      .highlight-edge {
+        stroke: #5886cb !important;
+      }
+      .highlight-edge-label,
+      .highlight-edge-label .edgeLabel {
+        fill: #5886cb !important;
+        color: #193153 !important;
+      }
+      .edgeLabel:has(.edge-hover-label) {
+        background-color: #cad9ee !important;
+      }
+      .edge-hover rect {
+        stroke-width: 5px !important;
+      }
+      .edge-hover-label,
+      .edge-hover-label .edgeLabel {
+        color: #1E498A !important;
+        fill: #1E498A !important;
+      }
+      * {
+        font-family: "Delius Swash Caps", sans-serif;
+      }
+      body {
+       background-color: floralwhite; 
+       overflow-y: hidden;
+      }
+      main {
+        margin: 3em 5em 0;
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+      }
+      #diagram {
+        flex-grow: 1;
+      }
+      input[type="range"] {
+        accent-color: #5886cb;
+        width: 500px
+      }
+      #chapter-details, #diagram {
+        margin-top: 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+      <h1>Le Voyage d'hiérarchie</h1>
+      <p>An exploration of <em>Georges Perec and the Oulipo: Winter Journeys</em></p>
+      <p><small>Drag the slider to navigate between chapters. Changes are highlighted in blue. Drag to pan and scroll to zoom.</small></p>
+      <div>
+        <label for="timeline">Chapter:</label>
+        <input type="range" id="timeline" min="1" max="21" step="1" value="1" />
+        <span id="timeline-value">1</span>
+      </div>
+      <div id="chapter-details"></div>
+      </div>
+      <div class="mermaid" id="diagram">Loading...</div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
